@@ -1,6 +1,7 @@
 FROM node:18-alpine3.16
 
 RUN addgroup allusers && adduser -S -G allusers 1004760000
+RUN mkdir /.npm
 WORKDIR /app
 COPY . .
 RUN mkdir spaship_uploads && mkdir root
