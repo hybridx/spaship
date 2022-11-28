@@ -19,10 +19,14 @@ WORKDIR /app
 
 RUN find . -name "node_modules" -exec rm -rf '{}' +
 
-RUN sudo npm install -g npm-check-updates
+RUN useradd group -u 1004760000 --create-home --user-group  # <--- Create a user
+COPY --chown=group . /app
+USER 1004760000
+
+RUN npm install -g npm-check-updates
 RUN npm cache clean --force
-RUN sudo chmod -R 777 /app
-RUN sudo chmod -R 777 ~/.npm
+RUN chmod -R 777 /app
+RUN chmod -R 777 ~/.npm
 RUN ls && npm install
 RUN npm run build
 
