@@ -13,11 +13,6 @@ RUN sudo apt-get install --yes build-essential
 RUN sudo apt-get update
 
 RUN mkdir app && mkdir app/spaship_uploads && mkdir app/root
-RUN sudo chown -R $USER:$(id -gn $USER) /app
-USER $USER
-
-RUN sudo mkdir ~/.config
-RUN sudo chown -R $USER:$(id -gn $USER) ~/.config
 
 ADD . /app
 WORKDIR /app
@@ -28,8 +23,7 @@ RUN sudo npm install -g npm-check-updates
 RUN npm cache clean --force
 RUN sudo chmod -R 777 /app
 RUN ls && npm install
-RUN npm run build
 
 EXPOSE 2345
 
-CMD [ "npm", "run", "start:prod"]
+CMD [ "npm", "run", "start"]
