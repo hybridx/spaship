@@ -1,4 +1,4 @@
-FROM node:16.13.1-alpine3.15
+node:18-alpine
 
 
 RUN addgroup allusers && adduser -S -G allusers 1004760000
@@ -7,6 +7,7 @@ COPY . .
 RUN mkdir spaship_uploads && mkdir root
 RUN npm install
 RUN npm run build
+RUN chmod -R 755 .
 EXPOSE 2345
 USER 1004760000
 CMD [ "npm", "run", "start:prod"]
