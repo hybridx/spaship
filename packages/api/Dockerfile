@@ -1,31 +1,10 @@
-FROM ubuntu:20.04
-
-RUN apt-get update
-RUN apt-get --force-yes upgrade  -y
-RUN apt-get dist-upgrade
-RUN apt-get install 
-
-RUN apt-get install --yes curl
-RUN apt update
-RUN curl -sL https://deb.nodesource.com/setup_18.x 
-RUN apt-get --force-yes install -y nodejs
-RUN apt-get install --yes build-essential
-RUN apt-get update
+FROM node:19-alpine
 
 RUN mkdir app && mkdir app/spaship_uploads && mkdir app/root
 
 ADD . /app
 WORKDIR /app
 
-RUN find . -name "node_modules" -exec rm -rf '{}' +
-
-RUN useradd group -u 1004760000 --create-home --user-group  # <--- Create a user
-COPY --chown=group . /app
-USER 1004760000
-
-RUN npm cache clean --force
-RUN chmod -R 777 /app
-RUN chmod -R 777 ~/.npm
 RUN ls && npm install
 RUN npm run build
 
