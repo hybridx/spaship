@@ -3,14 +3,14 @@ FROM ubuntu:20.04
 RUN apt-get update
 RUN apt-get --force-yes upgrade  -y
 RUN apt-get dist-upgrade
-RUN apt-get install sudo
+RUN apt-get install 
 
-RUN sudo apt-get install --yes curl
-RUN sudo apt update
-RUN sudo curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-RUN sudo apt-get --force-yes install -y nodejs
-RUN sudo apt-get install --yes build-essential
-RUN sudo apt-get update
+RUN apt-get install --yes curl
+RUN apt update
+RUN curl -sL https://deb.nodesource.com/setup_18.x 
+RUN apt-get --force-yes install -y nodejs
+RUN apt-get install --yes build-essential
+RUN apt-get update
 
 RUN mkdir app && mkdir app/spaship_uploads && mkdir app/root
 
