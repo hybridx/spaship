@@ -23,7 +23,6 @@ RUN useradd group -u 1004760000 --create-home --user-group  # <--- Create a user
 COPY --chown=group . /app
 USER 1004760000
 
-RUN npm install -g npm-check-updates
 RUN npm cache clean --force
 RUN chmod -R 777 /app
 RUN chmod -R 777 ~/.npm
