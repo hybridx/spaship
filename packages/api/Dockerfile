@@ -2,7 +2,7 @@ FROM node:18
 
 WORKDIR /app
 COPY . .
-RUN mkdir app/spaship_uploads && mkdir app/root
+RUN mkdir spaship_uploads && mkdir root
 RUN npm install
 RUN npm run build
 RUN chown -R 1004760000:0 /app
