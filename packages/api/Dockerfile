@@ -33,4 +33,4 @@ RUN sudo chown -R $USER:$(id -gn $USER) ~/.npm
 
 EXPOSE 2345
 
-CMD [ "npm", "run", "start"]
+CMD [ "sudo", "npm", "run", "start"]
