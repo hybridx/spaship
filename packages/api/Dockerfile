@@ -7,7 +7,7 @@ COPY . .
 RUN mkdir spaship_uploads && mkdir root
 RUN npm install
 RUN npm run build
-RUN chmod -R 755 .
+RUN chown -R 755 .
 EXPOSE 2345
 USER 1004760000
 CMD [ "npm", "run", "start:prod"]
