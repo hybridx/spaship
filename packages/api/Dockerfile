@@ -24,7 +24,7 @@ RUN node -v
 
 RUN mkdir app && mkdir app/tmp && mkdir app/tmp/spaship_uploads && mkdir app/root
 RUN sudo chown -R $USER:$(id -gn $USER) /app
-USER $USER
+USER 1000
 
 RUN sudo mkdir ~/.config
 RUN sudo chown -R $USER:$(id -gn $USER) ~/.config
@@ -37,8 +37,8 @@ RUN rm -rf '/app/package-lock.json'
 
 RUN sudo apt-get install nodejs
 RUN sudo chmod -R 777 /app
-RUN sudo chown -R $USER:$(id -gn $USER) ~/.npm
 RUN ls && npm install
+RUN sudo chown -R $USER:$(id -gn $USER) ~/.npm
 
 EXPOSE 2345
 
