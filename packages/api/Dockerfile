@@ -7,7 +7,6 @@ COPY . .
 RUN mkdir spaship_uploads && mkdir root
 RUN npm install
 RUN npm run build
-RUN useradd -u 1004760000 1004760000
 EXPOSE 2345
 USER 1004760000
 CMD [ "npm", "run", "start:prod"]
