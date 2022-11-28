@@ -16,7 +16,6 @@ RUN mkdir app && mkdir app/spaship_uploads && mkdir app/root
 
 USER 1004760000
 
-RUN sudo chown -R 1004760000:0 "/.npm"
 RUN useradd group -u 1004760000 --create-home --user-group  # <--- Create a user
 COPY --chown=group . /app
 
