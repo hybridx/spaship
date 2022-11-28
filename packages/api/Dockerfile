@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:16.13.1-alpine3.15
 
 
 RUN addgroup allusers && adduser -S -G allusers 1004760000
