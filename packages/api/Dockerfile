@@ -12,9 +12,10 @@ RUN sudo apt-get --force-yes install -y nodejs
 RUN sudo apt-get install --yes build-essential
 RUN sudo apt-get update
 
+RUN mkdir app && mkdir app/spaship_uploads && mkdir app/root
+
 USER 1004760000
 
-RUN mkdir app && mkdir app/spaship_uploads && mkdir app/root
 RUN sudo chown -R 1004760000:0 "/.npm"
 RUN useradd group -u 1004760000 --create-home --user-group  # <--- Create a user
 COPY --chown=group . /app
