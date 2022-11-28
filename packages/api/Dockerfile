@@ -1,5 +1,8 @@
 FROM ubuntu:20.04
 
+RUN apt-get update
+RUN apt-get --force-yes upgrade  -y
+RUN apt-get dist-upgrade
 RUN apt-get install sudo
 
 RUN sudo apt-get install --yes curl
