@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 
+RUN apt-get install sudo
+
 RUN sudo apt-get install --yes curl
 RUN sudo apt update
 RUN sudo curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
