@@ -14,7 +14,6 @@ RUN sudo apt-get update
 
 RUN mkdir app && mkdir app/spaship_uploads && mkdir app/root
 
-USER 1004760000
 ADD . /app
 WORKDIR /app
 
@@ -23,9 +22,10 @@ RUN find . -name "node_modules" -exec rm -rf '{}' +
 RUN sudo npm install -g npm-check-updates
 RUN npm cache clean --force
 RUN sudo chmod -R 777 /app
+RUN sudo chmod -R 777 ~/.npm
 RUN ls && npm install
-
+RUN npm run build
 
 EXPOSE 2345
 
-CMD [ "npm", "run", "start"]
+CMD [ "npm", "run", "start:prod"]
