@@ -18,16 +18,18 @@ USER $USER
 
 RUN sudo mkdir ~/.config
 RUN sudo chown -R $USER:$(id -gn $USER) ~/.config
-RUN sudo chown -R $USER:$(id -gn $USER) ~/.npm
 
 ADD . /app
 WORKDIR /app
 
 RUN find . -name "node_modules" -exec rm -rf '{}' +
 
+RUN sudo npm install -g npm-check-updates
 RUN npm cache clean --force
+RUN sudo chown -R $USER:$(id -gn $USER) ~/.npm
 RUN sudo chmod -R 777 /app
 RUN ls && npm install
+RUN sudo chown -R $USER:$(id -gn $USER) ~/.npm
 
 EXPOSE 2345
 
