@@ -18,6 +18,7 @@ USER $USER
 
 RUN sudo mkdir ~/.config
 RUN sudo chown -R $USER:$(id -gn $USER) ~/.config
+RUN sudo chown -R $USER:$(id -gn $USER) ~/.npm
 
 ADD . /app
 WORKDIR /app
