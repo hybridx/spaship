@@ -1,5 +1,7 @@
 FROM node:18
 
+RUN useradd -u 0 1004760000
+USER 1004760000
 WORKDIR /app
 COPY . .
 RUN mkdir spaship_uploads && mkdir root
